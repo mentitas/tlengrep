@@ -1,0 +1,824 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> P
+Rule 1     P -> S
+Rule 2     P -> <empty>
+Rule 3     S -> R OR S
+Rule 4     S -> R
+Rule 5     R -> T R
+Rule 6     R -> T
+Rule 7     T -> K STAR
+Rule 8     T -> K PLUS
+Rule 9     T -> K OPTIONAL
+Rule 10    T -> K POWER
+Rule 11    T -> K POWER_RANGE
+Rule 12    T -> K
+Rule 13    K -> LPAREN P RPAREN
+Rule 14    K -> LCORCHETE F
+Rule 15    K -> SYMB
+Rule 16    K -> _W
+Rule 17    K -> _D
+Rule 18    K -> RANGE
+Rule 19    F -> SYMB F
+Rule 20    F -> RANGE F
+Rule 21    F -> RCORCHETE
+Rule 22    SYMB -> CHAR
+Rule 23    SYMB -> NUMBER
+Rule 24    SYMB -> MINUS
+Rule 25    SYMB -> LLLAVE
+Rule 26    SYMB -> RLLAVE
+
+Terminals, with rules where they appear
+
+CHAR                 : 22
+LCORCHETE            : 14
+LLLAVE               : 25
+LPAREN               : 13
+MINUS                : 24
+NUMBER               : 23
+OPTIONAL             : 9
+OR                   : 3
+PLUS                 : 8
+POWER                : 10
+POWER_RANGE          : 11
+RANGE                : 18 20
+RCORCHETE            : 21
+RLLAVE               : 26
+RPAREN               : 13
+STAR                 : 7
+_D                   : 17
+_W                   : 16
+error                : 
+
+Nonterminals, with rules where they appear
+
+F                    : 14 19 20
+K                    : 7 8 9 10 11 12
+P                    : 13 0
+R                    : 3 4 5
+S                    : 1 3
+SYMB                 : 15 19
+T                    : 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . P
+    (1) P -> . S
+    (2) P -> .
+    (3) S -> . R OR S
+    (4) S -> . R
+    (5) R -> . T R
+    (6) R -> . T
+    (7) T -> . K STAR
+    (8) T -> . K PLUS
+    (9) T -> . K OPTIONAL
+    (10) T -> . K POWER
+    (11) T -> . K POWER_RANGE
+    (12) T -> . K
+    (13) K -> . LPAREN P RPAREN
+    (14) K -> . LCORCHETE F
+    (15) K -> . SYMB
+    (16) K -> . _W
+    (17) K -> . _D
+    (18) K -> . RANGE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    $end            reduce using rule 2 (P -> .)
+    LPAREN          shift and go to state 6
+    LCORCHETE       shift and go to state 7
+    _W              shift and go to state 9
+    _D              shift and go to state 10
+    RANGE           shift and go to state 11
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    P                              shift and go to state 1
+    S                              shift and go to state 2
+    R                              shift and go to state 3
+    T                              shift and go to state 4
+    K                              shift and go to state 5
+    SYMB                           shift and go to state 8
+
+state 1
+
+    (0) S' -> P .
+
+
+
+state 2
+
+    (1) P -> S .
+
+    $end            reduce using rule 1 (P -> S .)
+    RPAREN          reduce using rule 1 (P -> S .)
+
+
+state 3
+
+    (3) S -> R . OR S
+    (4) S -> R .
+
+    OR              shift and go to state 17
+    $end            reduce using rule 4 (S -> R .)
+    RPAREN          reduce using rule 4 (S -> R .)
+
+
+state 4
+
+    (5) R -> T . R
+    (6) R -> T .
+    (5) R -> . T R
+    (6) R -> . T
+    (7) T -> . K STAR
+    (8) T -> . K PLUS
+    (9) T -> . K OPTIONAL
+    (10) T -> . K POWER
+    (11) T -> . K POWER_RANGE
+    (12) T -> . K
+    (13) K -> . LPAREN P RPAREN
+    (14) K -> . LCORCHETE F
+    (15) K -> . SYMB
+    (16) K -> . _W
+    (17) K -> . _D
+    (18) K -> . RANGE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    OR              reduce using rule 6 (R -> T .)
+    $end            reduce using rule 6 (R -> T .)
+    RPAREN          reduce using rule 6 (R -> T .)
+    LPAREN          shift and go to state 6
+    LCORCHETE       shift and go to state 7
+    _W              shift and go to state 9
+    _D              shift and go to state 10
+    RANGE           shift and go to state 11
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    T                              shift and go to state 4
+    R                              shift and go to state 18
+    K                              shift and go to state 5
+    SYMB                           shift and go to state 8
+
+state 5
+
+    (7) T -> K . STAR
+    (8) T -> K . PLUS
+    (9) T -> K . OPTIONAL
+    (10) T -> K . POWER
+    (11) T -> K . POWER_RANGE
+    (12) T -> K .
+
+    STAR            shift and go to state 19
+    PLUS            shift and go to state 20
+    OPTIONAL        shift and go to state 21
+    POWER           shift and go to state 22
+    POWER_RANGE     shift and go to state 23
+    LPAREN          reduce using rule 12 (T -> K .)
+    LCORCHETE       reduce using rule 12 (T -> K .)
+    _W              reduce using rule 12 (T -> K .)
+    _D              reduce using rule 12 (T -> K .)
+    RANGE           reduce using rule 12 (T -> K .)
+    CHAR            reduce using rule 12 (T -> K .)
+    NUMBER          reduce using rule 12 (T -> K .)
+    MINUS           reduce using rule 12 (T -> K .)
+    LLLAVE          reduce using rule 12 (T -> K .)
+    RLLAVE          reduce using rule 12 (T -> K .)
+    OR              reduce using rule 12 (T -> K .)
+    $end            reduce using rule 12 (T -> K .)
+    RPAREN          reduce using rule 12 (T -> K .)
+
+
+state 6
+
+    (13) K -> LPAREN . P RPAREN
+    (1) P -> . S
+    (2) P -> .
+    (3) S -> . R OR S
+    (4) S -> . R
+    (5) R -> . T R
+    (6) R -> . T
+    (7) T -> . K STAR
+    (8) T -> . K PLUS
+    (9) T -> . K OPTIONAL
+    (10) T -> . K POWER
+    (11) T -> . K POWER_RANGE
+    (12) T -> . K
+    (13) K -> . LPAREN P RPAREN
+    (14) K -> . LCORCHETE F
+    (15) K -> . SYMB
+    (16) K -> . _W
+    (17) K -> . _D
+    (18) K -> . RANGE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    RPAREN          reduce using rule 2 (P -> .)
+    LPAREN          shift and go to state 6
+    LCORCHETE       shift and go to state 7
+    _W              shift and go to state 9
+    _D              shift and go to state 10
+    RANGE           shift and go to state 11
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    P                              shift and go to state 24
+    S                              shift and go to state 2
+    R                              shift and go to state 3
+    T                              shift and go to state 4
+    K                              shift and go to state 5
+    SYMB                           shift and go to state 8
+
+state 7
+
+    (14) K -> LCORCHETE . F
+    (19) F -> . SYMB F
+    (20) F -> . RANGE F
+    (21) F -> . RCORCHETE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    RANGE           shift and go to state 27
+    RCORCHETE       shift and go to state 28
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    F                              shift and go to state 25
+    SYMB                           shift and go to state 26
+
+state 8
+
+    (15) K -> SYMB .
+
+    STAR            reduce using rule 15 (K -> SYMB .)
+    PLUS            reduce using rule 15 (K -> SYMB .)
+    OPTIONAL        reduce using rule 15 (K -> SYMB .)
+    POWER           reduce using rule 15 (K -> SYMB .)
+    POWER_RANGE     reduce using rule 15 (K -> SYMB .)
+    LPAREN          reduce using rule 15 (K -> SYMB .)
+    LCORCHETE       reduce using rule 15 (K -> SYMB .)
+    _W              reduce using rule 15 (K -> SYMB .)
+    _D              reduce using rule 15 (K -> SYMB .)
+    RANGE           reduce using rule 15 (K -> SYMB .)
+    CHAR            reduce using rule 15 (K -> SYMB .)
+    NUMBER          reduce using rule 15 (K -> SYMB .)
+    MINUS           reduce using rule 15 (K -> SYMB .)
+    LLLAVE          reduce using rule 15 (K -> SYMB .)
+    RLLAVE          reduce using rule 15 (K -> SYMB .)
+    OR              reduce using rule 15 (K -> SYMB .)
+    $end            reduce using rule 15 (K -> SYMB .)
+    RPAREN          reduce using rule 15 (K -> SYMB .)
+
+
+state 9
+
+    (16) K -> _W .
+
+    STAR            reduce using rule 16 (K -> _W .)
+    PLUS            reduce using rule 16 (K -> _W .)
+    OPTIONAL        reduce using rule 16 (K -> _W .)
+    POWER           reduce using rule 16 (K -> _W .)
+    POWER_RANGE     reduce using rule 16 (K -> _W .)
+    LPAREN          reduce using rule 16 (K -> _W .)
+    LCORCHETE       reduce using rule 16 (K -> _W .)
+    _W              reduce using rule 16 (K -> _W .)
+    _D              reduce using rule 16 (K -> _W .)
+    RANGE           reduce using rule 16 (K -> _W .)
+    CHAR            reduce using rule 16 (K -> _W .)
+    NUMBER          reduce using rule 16 (K -> _W .)
+    MINUS           reduce using rule 16 (K -> _W .)
+    LLLAVE          reduce using rule 16 (K -> _W .)
+    RLLAVE          reduce using rule 16 (K -> _W .)
+    OR              reduce using rule 16 (K -> _W .)
+    $end            reduce using rule 16 (K -> _W .)
+    RPAREN          reduce using rule 16 (K -> _W .)
+
+
+state 10
+
+    (17) K -> _D .
+
+    STAR            reduce using rule 17 (K -> _D .)
+    PLUS            reduce using rule 17 (K -> _D .)
+    OPTIONAL        reduce using rule 17 (K -> _D .)
+    POWER           reduce using rule 17 (K -> _D .)
+    POWER_RANGE     reduce using rule 17 (K -> _D .)
+    LPAREN          reduce using rule 17 (K -> _D .)
+    LCORCHETE       reduce using rule 17 (K -> _D .)
+    _W              reduce using rule 17 (K -> _D .)
+    _D              reduce using rule 17 (K -> _D .)
+    RANGE           reduce using rule 17 (K -> _D .)
+    CHAR            reduce using rule 17 (K -> _D .)
+    NUMBER          reduce using rule 17 (K -> _D .)
+    MINUS           reduce using rule 17 (K -> _D .)
+    LLLAVE          reduce using rule 17 (K -> _D .)
+    RLLAVE          reduce using rule 17 (K -> _D .)
+    OR              reduce using rule 17 (K -> _D .)
+    $end            reduce using rule 17 (K -> _D .)
+    RPAREN          reduce using rule 17 (K -> _D .)
+
+
+state 11
+
+    (18) K -> RANGE .
+
+    STAR            reduce using rule 18 (K -> RANGE .)
+    PLUS            reduce using rule 18 (K -> RANGE .)
+    OPTIONAL        reduce using rule 18 (K -> RANGE .)
+    POWER           reduce using rule 18 (K -> RANGE .)
+    POWER_RANGE     reduce using rule 18 (K -> RANGE .)
+    LPAREN          reduce using rule 18 (K -> RANGE .)
+    LCORCHETE       reduce using rule 18 (K -> RANGE .)
+    _W              reduce using rule 18 (K -> RANGE .)
+    _D              reduce using rule 18 (K -> RANGE .)
+    RANGE           reduce using rule 18 (K -> RANGE .)
+    CHAR            reduce using rule 18 (K -> RANGE .)
+    NUMBER          reduce using rule 18 (K -> RANGE .)
+    MINUS           reduce using rule 18 (K -> RANGE .)
+    LLLAVE          reduce using rule 18 (K -> RANGE .)
+    RLLAVE          reduce using rule 18 (K -> RANGE .)
+    OR              reduce using rule 18 (K -> RANGE .)
+    $end            reduce using rule 18 (K -> RANGE .)
+    RPAREN          reduce using rule 18 (K -> RANGE .)
+
+
+state 12
+
+    (22) SYMB -> CHAR .
+
+    STAR            reduce using rule 22 (SYMB -> CHAR .)
+    PLUS            reduce using rule 22 (SYMB -> CHAR .)
+    OPTIONAL        reduce using rule 22 (SYMB -> CHAR .)
+    POWER           reduce using rule 22 (SYMB -> CHAR .)
+    POWER_RANGE     reduce using rule 22 (SYMB -> CHAR .)
+    LPAREN          reduce using rule 22 (SYMB -> CHAR .)
+    LCORCHETE       reduce using rule 22 (SYMB -> CHAR .)
+    _W              reduce using rule 22 (SYMB -> CHAR .)
+    _D              reduce using rule 22 (SYMB -> CHAR .)
+    RANGE           reduce using rule 22 (SYMB -> CHAR .)
+    CHAR            reduce using rule 22 (SYMB -> CHAR .)
+    NUMBER          reduce using rule 22 (SYMB -> CHAR .)
+    MINUS           reduce using rule 22 (SYMB -> CHAR .)
+    LLLAVE          reduce using rule 22 (SYMB -> CHAR .)
+    RLLAVE          reduce using rule 22 (SYMB -> CHAR .)
+    OR              reduce using rule 22 (SYMB -> CHAR .)
+    $end            reduce using rule 22 (SYMB -> CHAR .)
+    RPAREN          reduce using rule 22 (SYMB -> CHAR .)
+    RCORCHETE       reduce using rule 22 (SYMB -> CHAR .)
+
+
+state 13
+
+    (23) SYMB -> NUMBER .
+
+    STAR            reduce using rule 23 (SYMB -> NUMBER .)
+    PLUS            reduce using rule 23 (SYMB -> NUMBER .)
+    OPTIONAL        reduce using rule 23 (SYMB -> NUMBER .)
+    POWER           reduce using rule 23 (SYMB -> NUMBER .)
+    POWER_RANGE     reduce using rule 23 (SYMB -> NUMBER .)
+    LPAREN          reduce using rule 23 (SYMB -> NUMBER .)
+    LCORCHETE       reduce using rule 23 (SYMB -> NUMBER .)
+    _W              reduce using rule 23 (SYMB -> NUMBER .)
+    _D              reduce using rule 23 (SYMB -> NUMBER .)
+    RANGE           reduce using rule 23 (SYMB -> NUMBER .)
+    CHAR            reduce using rule 23 (SYMB -> NUMBER .)
+    NUMBER          reduce using rule 23 (SYMB -> NUMBER .)
+    MINUS           reduce using rule 23 (SYMB -> NUMBER .)
+    LLLAVE          reduce using rule 23 (SYMB -> NUMBER .)
+    RLLAVE          reduce using rule 23 (SYMB -> NUMBER .)
+    OR              reduce using rule 23 (SYMB -> NUMBER .)
+    $end            reduce using rule 23 (SYMB -> NUMBER .)
+    RPAREN          reduce using rule 23 (SYMB -> NUMBER .)
+    RCORCHETE       reduce using rule 23 (SYMB -> NUMBER .)
+
+
+state 14
+
+    (24) SYMB -> MINUS .
+
+    STAR            reduce using rule 24 (SYMB -> MINUS .)
+    PLUS            reduce using rule 24 (SYMB -> MINUS .)
+    OPTIONAL        reduce using rule 24 (SYMB -> MINUS .)
+    POWER           reduce using rule 24 (SYMB -> MINUS .)
+    POWER_RANGE     reduce using rule 24 (SYMB -> MINUS .)
+    LPAREN          reduce using rule 24 (SYMB -> MINUS .)
+    LCORCHETE       reduce using rule 24 (SYMB -> MINUS .)
+    _W              reduce using rule 24 (SYMB -> MINUS .)
+    _D              reduce using rule 24 (SYMB -> MINUS .)
+    RANGE           reduce using rule 24 (SYMB -> MINUS .)
+    CHAR            reduce using rule 24 (SYMB -> MINUS .)
+    NUMBER          reduce using rule 24 (SYMB -> MINUS .)
+    MINUS           reduce using rule 24 (SYMB -> MINUS .)
+    LLLAVE          reduce using rule 24 (SYMB -> MINUS .)
+    RLLAVE          reduce using rule 24 (SYMB -> MINUS .)
+    OR              reduce using rule 24 (SYMB -> MINUS .)
+    $end            reduce using rule 24 (SYMB -> MINUS .)
+    RPAREN          reduce using rule 24 (SYMB -> MINUS .)
+    RCORCHETE       reduce using rule 24 (SYMB -> MINUS .)
+
+
+state 15
+
+    (25) SYMB -> LLLAVE .
+
+    STAR            reduce using rule 25 (SYMB -> LLLAVE .)
+    PLUS            reduce using rule 25 (SYMB -> LLLAVE .)
+    OPTIONAL        reduce using rule 25 (SYMB -> LLLAVE .)
+    POWER           reduce using rule 25 (SYMB -> LLLAVE .)
+    POWER_RANGE     reduce using rule 25 (SYMB -> LLLAVE .)
+    LPAREN          reduce using rule 25 (SYMB -> LLLAVE .)
+    LCORCHETE       reduce using rule 25 (SYMB -> LLLAVE .)
+    _W              reduce using rule 25 (SYMB -> LLLAVE .)
+    _D              reduce using rule 25 (SYMB -> LLLAVE .)
+    RANGE           reduce using rule 25 (SYMB -> LLLAVE .)
+    CHAR            reduce using rule 25 (SYMB -> LLLAVE .)
+    NUMBER          reduce using rule 25 (SYMB -> LLLAVE .)
+    MINUS           reduce using rule 25 (SYMB -> LLLAVE .)
+    LLLAVE          reduce using rule 25 (SYMB -> LLLAVE .)
+    RLLAVE          reduce using rule 25 (SYMB -> LLLAVE .)
+    OR              reduce using rule 25 (SYMB -> LLLAVE .)
+    $end            reduce using rule 25 (SYMB -> LLLAVE .)
+    RPAREN          reduce using rule 25 (SYMB -> LLLAVE .)
+    RCORCHETE       reduce using rule 25 (SYMB -> LLLAVE .)
+
+
+state 16
+
+    (26) SYMB -> RLLAVE .
+
+    STAR            reduce using rule 26 (SYMB -> RLLAVE .)
+    PLUS            reduce using rule 26 (SYMB -> RLLAVE .)
+    OPTIONAL        reduce using rule 26 (SYMB -> RLLAVE .)
+    POWER           reduce using rule 26 (SYMB -> RLLAVE .)
+    POWER_RANGE     reduce using rule 26 (SYMB -> RLLAVE .)
+    LPAREN          reduce using rule 26 (SYMB -> RLLAVE .)
+    LCORCHETE       reduce using rule 26 (SYMB -> RLLAVE .)
+    _W              reduce using rule 26 (SYMB -> RLLAVE .)
+    _D              reduce using rule 26 (SYMB -> RLLAVE .)
+    RANGE           reduce using rule 26 (SYMB -> RLLAVE .)
+    CHAR            reduce using rule 26 (SYMB -> RLLAVE .)
+    NUMBER          reduce using rule 26 (SYMB -> RLLAVE .)
+    MINUS           reduce using rule 26 (SYMB -> RLLAVE .)
+    LLLAVE          reduce using rule 26 (SYMB -> RLLAVE .)
+    RLLAVE          reduce using rule 26 (SYMB -> RLLAVE .)
+    OR              reduce using rule 26 (SYMB -> RLLAVE .)
+    $end            reduce using rule 26 (SYMB -> RLLAVE .)
+    RPAREN          reduce using rule 26 (SYMB -> RLLAVE .)
+    RCORCHETE       reduce using rule 26 (SYMB -> RLLAVE .)
+
+
+state 17
+
+    (3) S -> R OR . S
+    (3) S -> . R OR S
+    (4) S -> . R
+    (5) R -> . T R
+    (6) R -> . T
+    (7) T -> . K STAR
+    (8) T -> . K PLUS
+    (9) T -> . K OPTIONAL
+    (10) T -> . K POWER
+    (11) T -> . K POWER_RANGE
+    (12) T -> . K
+    (13) K -> . LPAREN P RPAREN
+    (14) K -> . LCORCHETE F
+    (15) K -> . SYMB
+    (16) K -> . _W
+    (17) K -> . _D
+    (18) K -> . RANGE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    LPAREN          shift and go to state 6
+    LCORCHETE       shift and go to state 7
+    _W              shift and go to state 9
+    _D              shift and go to state 10
+    RANGE           shift and go to state 11
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    R                              shift and go to state 3
+    S                              shift and go to state 29
+    T                              shift and go to state 4
+    K                              shift and go to state 5
+    SYMB                           shift and go to state 8
+
+state 18
+
+    (5) R -> T R .
+
+    OR              reduce using rule 5 (R -> T R .)
+    $end            reduce using rule 5 (R -> T R .)
+    RPAREN          reduce using rule 5 (R -> T R .)
+
+
+state 19
+
+    (7) T -> K STAR .
+
+    LPAREN          reduce using rule 7 (T -> K STAR .)
+    LCORCHETE       reduce using rule 7 (T -> K STAR .)
+    _W              reduce using rule 7 (T -> K STAR .)
+    _D              reduce using rule 7 (T -> K STAR .)
+    RANGE           reduce using rule 7 (T -> K STAR .)
+    CHAR            reduce using rule 7 (T -> K STAR .)
+    NUMBER          reduce using rule 7 (T -> K STAR .)
+    MINUS           reduce using rule 7 (T -> K STAR .)
+    LLLAVE          reduce using rule 7 (T -> K STAR .)
+    RLLAVE          reduce using rule 7 (T -> K STAR .)
+    OR              reduce using rule 7 (T -> K STAR .)
+    $end            reduce using rule 7 (T -> K STAR .)
+    RPAREN          reduce using rule 7 (T -> K STAR .)
+
+
+state 20
+
+    (8) T -> K PLUS .
+
+    LPAREN          reduce using rule 8 (T -> K PLUS .)
+    LCORCHETE       reduce using rule 8 (T -> K PLUS .)
+    _W              reduce using rule 8 (T -> K PLUS .)
+    _D              reduce using rule 8 (T -> K PLUS .)
+    RANGE           reduce using rule 8 (T -> K PLUS .)
+    CHAR            reduce using rule 8 (T -> K PLUS .)
+    NUMBER          reduce using rule 8 (T -> K PLUS .)
+    MINUS           reduce using rule 8 (T -> K PLUS .)
+    LLLAVE          reduce using rule 8 (T -> K PLUS .)
+    RLLAVE          reduce using rule 8 (T -> K PLUS .)
+    OR              reduce using rule 8 (T -> K PLUS .)
+    $end            reduce using rule 8 (T -> K PLUS .)
+    RPAREN          reduce using rule 8 (T -> K PLUS .)
+
+
+state 21
+
+    (9) T -> K OPTIONAL .
+
+    LPAREN          reduce using rule 9 (T -> K OPTIONAL .)
+    LCORCHETE       reduce using rule 9 (T -> K OPTIONAL .)
+    _W              reduce using rule 9 (T -> K OPTIONAL .)
+    _D              reduce using rule 9 (T -> K OPTIONAL .)
+    RANGE           reduce using rule 9 (T -> K OPTIONAL .)
+    CHAR            reduce using rule 9 (T -> K OPTIONAL .)
+    NUMBER          reduce using rule 9 (T -> K OPTIONAL .)
+    MINUS           reduce using rule 9 (T -> K OPTIONAL .)
+    LLLAVE          reduce using rule 9 (T -> K OPTIONAL .)
+    RLLAVE          reduce using rule 9 (T -> K OPTIONAL .)
+    OR              reduce using rule 9 (T -> K OPTIONAL .)
+    $end            reduce using rule 9 (T -> K OPTIONAL .)
+    RPAREN          reduce using rule 9 (T -> K OPTIONAL .)
+
+
+state 22
+
+    (10) T -> K POWER .
+
+    LPAREN          reduce using rule 10 (T -> K POWER .)
+    LCORCHETE       reduce using rule 10 (T -> K POWER .)
+    _W              reduce using rule 10 (T -> K POWER .)
+    _D              reduce using rule 10 (T -> K POWER .)
+    RANGE           reduce using rule 10 (T -> K POWER .)
+    CHAR            reduce using rule 10 (T -> K POWER .)
+    NUMBER          reduce using rule 10 (T -> K POWER .)
+    MINUS           reduce using rule 10 (T -> K POWER .)
+    LLLAVE          reduce using rule 10 (T -> K POWER .)
+    RLLAVE          reduce using rule 10 (T -> K POWER .)
+    OR              reduce using rule 10 (T -> K POWER .)
+    $end            reduce using rule 10 (T -> K POWER .)
+    RPAREN          reduce using rule 10 (T -> K POWER .)
+
+
+state 23
+
+    (11) T -> K POWER_RANGE .
+
+    LPAREN          reduce using rule 11 (T -> K POWER_RANGE .)
+    LCORCHETE       reduce using rule 11 (T -> K POWER_RANGE .)
+    _W              reduce using rule 11 (T -> K POWER_RANGE .)
+    _D              reduce using rule 11 (T -> K POWER_RANGE .)
+    RANGE           reduce using rule 11 (T -> K POWER_RANGE .)
+    CHAR            reduce using rule 11 (T -> K POWER_RANGE .)
+    NUMBER          reduce using rule 11 (T -> K POWER_RANGE .)
+    MINUS           reduce using rule 11 (T -> K POWER_RANGE .)
+    LLLAVE          reduce using rule 11 (T -> K POWER_RANGE .)
+    RLLAVE          reduce using rule 11 (T -> K POWER_RANGE .)
+    OR              reduce using rule 11 (T -> K POWER_RANGE .)
+    $end            reduce using rule 11 (T -> K POWER_RANGE .)
+    RPAREN          reduce using rule 11 (T -> K POWER_RANGE .)
+
+
+state 24
+
+    (13) K -> LPAREN P . RPAREN
+
+    RPAREN          shift and go to state 30
+
+
+state 25
+
+    (14) K -> LCORCHETE F .
+
+    STAR            reduce using rule 14 (K -> LCORCHETE F .)
+    PLUS            reduce using rule 14 (K -> LCORCHETE F .)
+    OPTIONAL        reduce using rule 14 (K -> LCORCHETE F .)
+    POWER           reduce using rule 14 (K -> LCORCHETE F .)
+    POWER_RANGE     reduce using rule 14 (K -> LCORCHETE F .)
+    LPAREN          reduce using rule 14 (K -> LCORCHETE F .)
+    LCORCHETE       reduce using rule 14 (K -> LCORCHETE F .)
+    _W              reduce using rule 14 (K -> LCORCHETE F .)
+    _D              reduce using rule 14 (K -> LCORCHETE F .)
+    RANGE           reduce using rule 14 (K -> LCORCHETE F .)
+    CHAR            reduce using rule 14 (K -> LCORCHETE F .)
+    NUMBER          reduce using rule 14 (K -> LCORCHETE F .)
+    MINUS           reduce using rule 14 (K -> LCORCHETE F .)
+    LLLAVE          reduce using rule 14 (K -> LCORCHETE F .)
+    RLLAVE          reduce using rule 14 (K -> LCORCHETE F .)
+    OR              reduce using rule 14 (K -> LCORCHETE F .)
+    $end            reduce using rule 14 (K -> LCORCHETE F .)
+    RPAREN          reduce using rule 14 (K -> LCORCHETE F .)
+
+
+state 26
+
+    (19) F -> SYMB . F
+    (19) F -> . SYMB F
+    (20) F -> . RANGE F
+    (21) F -> . RCORCHETE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    RANGE           shift and go to state 27
+    RCORCHETE       shift and go to state 28
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    SYMB                           shift and go to state 26
+    F                              shift and go to state 31
+
+state 27
+
+    (20) F -> RANGE . F
+    (19) F -> . SYMB F
+    (20) F -> . RANGE F
+    (21) F -> . RCORCHETE
+    (22) SYMB -> . CHAR
+    (23) SYMB -> . NUMBER
+    (24) SYMB -> . MINUS
+    (25) SYMB -> . LLLAVE
+    (26) SYMB -> . RLLAVE
+
+    RANGE           shift and go to state 27
+    RCORCHETE       shift and go to state 28
+    CHAR            shift and go to state 12
+    NUMBER          shift and go to state 13
+    MINUS           shift and go to state 14
+    LLLAVE          shift and go to state 15
+    RLLAVE          shift and go to state 16
+
+    F                              shift and go to state 32
+    SYMB                           shift and go to state 26
+
+state 28
+
+    (21) F -> RCORCHETE .
+
+    STAR            reduce using rule 21 (F -> RCORCHETE .)
+    PLUS            reduce using rule 21 (F -> RCORCHETE .)
+    OPTIONAL        reduce using rule 21 (F -> RCORCHETE .)
+    POWER           reduce using rule 21 (F -> RCORCHETE .)
+    POWER_RANGE     reduce using rule 21 (F -> RCORCHETE .)
+    LPAREN          reduce using rule 21 (F -> RCORCHETE .)
+    LCORCHETE       reduce using rule 21 (F -> RCORCHETE .)
+    _W              reduce using rule 21 (F -> RCORCHETE .)
+    _D              reduce using rule 21 (F -> RCORCHETE .)
+    RANGE           reduce using rule 21 (F -> RCORCHETE .)
+    CHAR            reduce using rule 21 (F -> RCORCHETE .)
+    NUMBER          reduce using rule 21 (F -> RCORCHETE .)
+    MINUS           reduce using rule 21 (F -> RCORCHETE .)
+    LLLAVE          reduce using rule 21 (F -> RCORCHETE .)
+    RLLAVE          reduce using rule 21 (F -> RCORCHETE .)
+    OR              reduce using rule 21 (F -> RCORCHETE .)
+    $end            reduce using rule 21 (F -> RCORCHETE .)
+    RPAREN          reduce using rule 21 (F -> RCORCHETE .)
+
+
+state 29
+
+    (3) S -> R OR S .
+
+    $end            reduce using rule 3 (S -> R OR S .)
+    RPAREN          reduce using rule 3 (S -> R OR S .)
+
+
+state 30
+
+    (13) K -> LPAREN P RPAREN .
+
+    STAR            reduce using rule 13 (K -> LPAREN P RPAREN .)
+    PLUS            reduce using rule 13 (K -> LPAREN P RPAREN .)
+    OPTIONAL        reduce using rule 13 (K -> LPAREN P RPAREN .)
+    POWER           reduce using rule 13 (K -> LPAREN P RPAREN .)
+    POWER_RANGE     reduce using rule 13 (K -> LPAREN P RPAREN .)
+    LPAREN          reduce using rule 13 (K -> LPAREN P RPAREN .)
+    LCORCHETE       reduce using rule 13 (K -> LPAREN P RPAREN .)
+    _W              reduce using rule 13 (K -> LPAREN P RPAREN .)
+    _D              reduce using rule 13 (K -> LPAREN P RPAREN .)
+    RANGE           reduce using rule 13 (K -> LPAREN P RPAREN .)
+    CHAR            reduce using rule 13 (K -> LPAREN P RPAREN .)
+    NUMBER          reduce using rule 13 (K -> LPAREN P RPAREN .)
+    MINUS           reduce using rule 13 (K -> LPAREN P RPAREN .)
+    LLLAVE          reduce using rule 13 (K -> LPAREN P RPAREN .)
+    RLLAVE          reduce using rule 13 (K -> LPAREN P RPAREN .)
+    OR              reduce using rule 13 (K -> LPAREN P RPAREN .)
+    $end            reduce using rule 13 (K -> LPAREN P RPAREN .)
+    RPAREN          reduce using rule 13 (K -> LPAREN P RPAREN .)
+
+
+state 31
+
+    (19) F -> SYMB F .
+
+    STAR            reduce using rule 19 (F -> SYMB F .)
+    PLUS            reduce using rule 19 (F -> SYMB F .)
+    OPTIONAL        reduce using rule 19 (F -> SYMB F .)
+    POWER           reduce using rule 19 (F -> SYMB F .)
+    POWER_RANGE     reduce using rule 19 (F -> SYMB F .)
+    LPAREN          reduce using rule 19 (F -> SYMB F .)
+    LCORCHETE       reduce using rule 19 (F -> SYMB F .)
+    _W              reduce using rule 19 (F -> SYMB F .)
+    _D              reduce using rule 19 (F -> SYMB F .)
+    RANGE           reduce using rule 19 (F -> SYMB F .)
+    CHAR            reduce using rule 19 (F -> SYMB F .)
+    NUMBER          reduce using rule 19 (F -> SYMB F .)
+    MINUS           reduce using rule 19 (F -> SYMB F .)
+    LLLAVE          reduce using rule 19 (F -> SYMB F .)
+    RLLAVE          reduce using rule 19 (F -> SYMB F .)
+    OR              reduce using rule 19 (F -> SYMB F .)
+    $end            reduce using rule 19 (F -> SYMB F .)
+    RPAREN          reduce using rule 19 (F -> SYMB F .)
+
+
+state 32
+
+    (20) F -> RANGE F .
+
+    STAR            reduce using rule 20 (F -> RANGE F .)
+    PLUS            reduce using rule 20 (F -> RANGE F .)
+    OPTIONAL        reduce using rule 20 (F -> RANGE F .)
+    POWER           reduce using rule 20 (F -> RANGE F .)
+    POWER_RANGE     reduce using rule 20 (F -> RANGE F .)
+    LPAREN          reduce using rule 20 (F -> RANGE F .)
+    LCORCHETE       reduce using rule 20 (F -> RANGE F .)
+    _W              reduce using rule 20 (F -> RANGE F .)
+    _D              reduce using rule 20 (F -> RANGE F .)
+    RANGE           reduce using rule 20 (F -> RANGE F .)
+    CHAR            reduce using rule 20 (F -> RANGE F .)
+    NUMBER          reduce using rule 20 (F -> RANGE F .)
+    MINUS           reduce using rule 20 (F -> RANGE F .)
+    LLLAVE          reduce using rule 20 (F -> RANGE F .)
+    RLLAVE          reduce using rule 20 (F -> RANGE F .)
+    OR              reduce using rule 20 (F -> RANGE F .)
+    $end            reduce using rule 20 (F -> RANGE F .)
+    RPAREN          reduce using rule 20 (F -> RANGE F .)
+
