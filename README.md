@@ -1,13 +1,6 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/SHHOCZhI)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=12189852)
 # Trabajo práctico: tlengrep
 
-Este repositorio contiene una base de código a partir de la cual implementar
-el trabajo práctico de Teoría de Lenguajes.
-
-## Aclaración del grupo BTS
-El modo de ejecución es igual al provisto por la cátedra.
-Lo único distinto es cómo corrimos los tests.
+El propósito de este proyecto consiste en desarrollar una herramienta capaz de detectar las ocurrencias de una expresión regular en un texto. Creamos un parser que permite leer una cadena de texto de entrada, y traducirla a una instancia de la clase RegEx. Luego representamos las expresiones regulares como objetos e implementamos la funcionalidad de búsqueda haciendo uso de autómatas finitos.
 
 ## Cómo correr nuestros tests
 Correr el script `experimentacion.sh` que se encuentra en `tlengrep/tests` 
@@ -16,7 +9,6 @@ Correr el script `experimentacion.sh` que se encuentra en `tlengrep/tests`
 
 El repositorio contiene los siguientes directorios:
 - `tlengrep`: contiene el código fuente del trabajo práctico.
-- `informe`: donde deben colocar el informe del trabajo práctico.
 
 ## Modo de ejecución
 
